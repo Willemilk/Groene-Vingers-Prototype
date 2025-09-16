@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Github, Youtube, Twitter, Instagram, ExternalLink } from 'lucide-react';
 import TerrariaBg from '../Images/TerrariaBackground.png';
@@ -41,16 +42,13 @@ const LINKS = [
 export default function Home() {
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
-      {/* Background */}
       <div
         className="absolute inset-0 -z-10 bg-fixed bg-center bg-cover"
         style={{ backgroundImage: `url(${TerrariaBg.src})`, imageRendering: 'pixelated' }}
       />
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/80 via-black/50 to-black/85" />
 
-      {/* Main Content */}
       <main className="px-6 py-10 text-neutral-100">
-        {/* Header Section */}
         <motion.section
           initial={{ opacity: 0, y: 20, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -58,7 +56,6 @@ export default function Home() {
           className="mx-auto mb-10 w-full max-w-5xl"
         >
           <div className="relative rounded-3xl border border-white/15 bg-white/5 p-6 md:p-8 backdrop-blur-md shadow-[0_8px_0_#0a0a0a]">
-            {/* subtle glow */}
             <div className="absolute inset-0 rounded-3xl [mask-image:radial-gradient(160%_120%_at_0%_0%,black,transparent)] pointer-events-none">
               <motion.div
                 initial={{ opacity: 0 }}
@@ -69,34 +66,39 @@ export default function Home() {
             </div>
 
             <div className="flex items-center gap-5">
-              {/* Logo with softer rounded corners */}
               <div className="h-16 w-16 shrink-0 rounded-2xl border border-white/20 bg-black/40 shadow-[0_5px_0_#111827] grid place-items-center overflow-hidden">
-                <Image
-                  src={Logo}
-                  alt="logo"
-                  width={64}
-                  height={64}
-                  className="object-contain rounded-2xl"
-                />
+                <Image src={Logo} alt="logo" width={64} height={64} className="object-contain rounded-2xl" />
               </div>
-
-              {/* Name + Intro */}
-              <div>
-                <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight [text-shadow:2px_2px_0_#000]">
-                  Hey, I’m Willem
-                </h1>
+              <div className="flex-1">
+                <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight [text-shadow:2px_2px_0_#000]">Hey, I’m Willem</h1>
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.15 }}
                   className="mt-1 text-sm/6 text-neutral-200/90"
                 >
-                  this is my linktree — about me erm idunno tbh but just take a look
+                  this is my linktree about me erm idunno tbh but just take a look
                 </motion.p>
+              </div>
+              <div className="hidden md:flex items-center gap-2">
+                <Link href="/about" className="rounded-lg border border-white/20 bg-white/10 px-4 py-2 text-sm backdrop-blur-md shadow-[0_3px_0_#0b0b0b] hover:-translate-y-0.5 active:translate-y-[1px] transition">
+                  About Me
+                </Link>
+                <Link href="/cool-stuff" className="rounded-lg border border-white/20 bg-white/10 px-4 py-2 text-sm backdrop-blur-md shadow-[0_3px_0_#0b0b0b] hover:-translate-y-0.5 active:translate-y-[1px] transition">
+                  Cool Stuff
+                </Link>
               </div>
             </div>
 
-            {/* Decorative line under header */}
+            <div className="mt-4 flex md:hidden items-center gap-2">
+              <Link href="/about" className="rounded-lg border border-white/20 bg-white/10 px-3 py-1.5 text-sm backdrop-blur-md shadow-[0_3px_0_#0b0b0b]">
+                About Me
+              </Link>
+              <Link href="/cool-stuff" className="rounded-lg border border-white/20 bg-white/10 px-3 py-1.5 text-sm backdrop-blur-md shadow-[0_3px_0_#0b0b0b]">
+                Cool Stuff
+              </Link>
+            </div>
+
             <motion.div
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
@@ -106,7 +108,6 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* Link Blocks */}
         <div className="mx-auto w-full max-w-2xl">
           <ul id="links" className="space-y-3">
             {LINKS.map((l, i) => (
