@@ -1,70 +1,142 @@
-import { Github, Youtube, Twitter, Instagram, ExternalLink } from "lucide-react";
+'use client';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { Github, Youtube, Twitter, Instagram, ExternalLink } from 'lucide-react';
+import TerrariaBg from '../Images/TerrariaBackground.png';
+import Logo from '../Images/logo.png';
 
 const LINKS = [
   {
-    label: "GitHub",
-    href: "https://github.com/Willemilk?tab=overview&from=2025-09-01&to=2025-09-16",
+    label: 'GitHub',
+    href: 'https://github.com/Willemilk?tab=overview&from=2025-09-01&to=2025-09-16',
     icon: <Github size={18} />,
-    desc: "Random projects, mostly school stuff",
+    desc: 'Random projects, mostly school stuff',
   },
   {
-    label: "YouTube",
-    href: "https://www.youtube.com/@willemilk1942/videos",
+    label: 'YouTube',
+    href: 'https://www.youtube.com/@willemilk1942/videos',
     icon: <Youtube size={18} />,
-    desc: "Geometry Dash progress + random shares",
+    desc: 'Create gaming videos mostly geometry dash a lot of videos are unlisted / private because this channel is more of a progression update thingy for geometry dash or just random videos i want to share with my friends i am not really "trying to make it" or anything like that',
   },
   {
-    label: "Twitter / X",
-    href: "https://x.com/WillemdeWit040",
+    label: 'Twitter / X',
+    href: 'https://x.com/WillemdeWit040',
     icon: <Twitter size={18} />,
-    desc: "Mostly scrolling and watching people argue 😭",
+    desc: 'Mostly scrolling and watching people argue 😭',
   },
   {
-    label: "TikTok",
-    href: "https://www.tiktok.com/@willemdewit10?lang=en-GB",
+    label: 'TikTok',
+    href: 'https://www.tiktok.com/@willemdewit10?lang=en-GB',
     icon: <Youtube size={18} />,
-    desc: "Using less now, reels > TikTok",
+    desc: 'Using less now because of Reels',
   },
   {
-    label: "Instagram",
-    href: "https://www.instagram.com/willemilk/",
+    label: 'Instagram',
+    href: 'https://www.instagram.com/willemilk/',
     icon: <Instagram size={18} />,
-    desc: "Life stuff and reels doomscrolling",
+    desc: 'Life stuff and reels doomscrolling',
   },
 ];
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
-      <main className="mx-auto max-w-xl px-5 py-10">
-        <header className="mb-6">
-          <h1 className="text-2xl font-semibold tracking-tight">@willemilk</h1>
-          <p className="text-sm text-neutral-600 dark:text-neutral-300">Links</p>
-        </header>
+    <div className="relative min-h-screen w-full overflow-hidden">
+      {/* Background */}
+      <div
+        className="absolute inset-0 -z-10 bg-fixed bg-center bg-cover"
+        style={{ backgroundImage: `url(${TerrariaBg.src})`, imageRendering: 'pixelated' }}
+      />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/80 via-black/50 to-black/85" />
 
-        <ul className="space-y-3">
-          {LINKS.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                className="group flex items-center justify-between rounded-2xl border border-neutral-200 bg-white/70 px-4 py-3 shadow-sm backdrop-blur hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900/60"
+      {/* Main Content */}
+      <main className="px-6 py-10 text-neutral-100">
+        {/* Header Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 20, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ type: 'spring', stiffness: 140, damping: 18 }}
+          className="mx-auto mb-10 w-full max-w-5xl"
+        >
+          <div className="relative rounded-3xl border border-white/15 bg-white/5 p-6 md:p-8 backdrop-blur-md shadow-[0_8px_0_#0a0a0a]">
+            {/* subtle glow */}
+            <div className="absolute inset-0 rounded-3xl [mask-image:radial-gradient(160%_120%_at_0%_0%,black,transparent)] pointer-events-none">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.18 }}
+                transition={{ delay: 0.2, duration: 1.2 }}
+                className="absolute -top-10 -left-10 h-44 w-44 rounded-full bg-gradient-to-br from-indigo-400 via-sky-300 to-emerald-300 blur-3xl"
+              />
+            </div>
+
+            <div className="flex items-center gap-5">
+              {/* Logo with softer rounded corners */}
+              <div className="h-16 w-16 shrink-0 rounded-2xl border border-white/20 bg-black/40 shadow-[0_5px_0_#111827] grid place-items-center overflow-hidden">
+                <Image
+                  src={Logo}
+                  alt="logo"
+                  width={64}
+                  height={64}
+                  className="object-contain rounded-2xl"
+                />
+              </div>
+
+              {/* Name + Intro */}
+              <div>
+                <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight [text-shadow:2px_2px_0_#000]">
+                  Hey, I’m Willem
+                </h1>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.15 }}
+                  className="mt-1 text-sm/6 text-neutral-200/90"
+                >
+                  this is my linktree — about me erm idunno tbh but just take a look
+                </motion.p>
+              </div>
+            </div>
+
+            {/* Decorative line under header */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.25, type: 'spring', stiffness: 140, damping: 20 }}
+              className="mt-5 h-[3px] w-full origin-left rounded-full bg-gradient-to-r from-white/60 via-white/30 to-transparent"
+            />
+          </div>
+        </motion.section>
+
+        {/* Link Blocks */}
+        <div className="mx-auto w-full max-w-2xl">
+          <ul id="links" className="space-y-3">
+            {LINKS.map((l, i) => (
+              <motion.li
+                key={l.href}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + i * 0.06, type: 'spring', stiffness: 180, damping: 18 }}
               >
-                <div className="flex items-center gap-3">
-                  <span className="opacity-80 group-hover:opacity-100 transition">{l.icon}</span>
-                  <div>
-                    <div className="font-medium tracking-tight">{l.label}</div>
-                    <div className="text-xs text-neutral-600 dark:text-neutral-400">{l.desc}</div>
+                <a
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  className="group flex items-center justify-between rounded-2xl border border-white/20 bg-white/10 px-4 py-3 backdrop-blur-md shadow-[0_6px_0_#0a0a0a] hover:translate-y-[-2px] hover:shadow-[0_8px_0_#0a0a0a] active:translate-y-[1px] transition-all"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="shrink-0 rounded-md border border-white/20 bg-black/30 p-2 shadow-[0_2px_0_#0a0a0a] group-hover:scale-105 transition">
+                      {l.icon}
+                    </span>
+                    <div>
+                      <div className="font-semibold tracking-wide">{l.label}</div>
+                      <div className="text-xs text-neutral-200/85">{l.desc}</div>
+                    </div>
                   </div>
-                </div>
-                <ExternalLink size={16} className="opacity-40 group-hover:opacity-100 transition" />
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <footer className="mt-8 text-xs text-neutral-500">Simple link hub</footer>
+                  <ExternalLink size={16} className="opacity-60 group-hover:opacity-100 transition" />
+                </a>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
       </main>
     </div>
   );
