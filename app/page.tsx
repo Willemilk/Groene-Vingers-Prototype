@@ -1,10 +1,7 @@
-'use client';
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Github, Youtube, Twitter, Instagram, ExternalLink } from 'lucide-react';
-import TerrariaBg from '../Images/TerrariaBackground.png';
-import Logo from '../Images/logo.png';
+'use client'
+import Image from 'next/image'
+import { motion } from 'framer-motion'
+import { Github, Youtube, Twitter, Instagram, ExternalLink } from 'lucide-react'
 
 const LINKS = [
   {
@@ -37,17 +34,16 @@ const LINKS = [
     icon: <Instagram size={18} />,
     desc: 'Life stuff and reels doomscrolling',
   },
-];
+]
 
 export default function Home() {
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
       <div
         className="absolute inset-0 -z-10 bg-fixed bg-center bg-cover"
-        style={{ backgroundImage: `url(${TerrariaBg.src})`, imageRendering: 'pixelated' }}
+        style={{ backgroundImage: 'url(/TerrariaBackground.png)', imageRendering: 'pixelated' }}
       />
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/80 via-black/50 to-black/85" />
-
       <main className="px-6 py-10 text-neutral-100">
         <motion.section
           initial={{ opacity: 0, y: 20, scale: 0.98 }}
@@ -64,13 +60,14 @@ export default function Home() {
                 className="absolute -top-10 -left-10 h-44 w-44 rounded-full bg-gradient-to-br from-indigo-400 via-sky-300 to-emerald-300 blur-3xl"
               />
             </div>
-
             <div className="flex items-center gap-5">
               <div className="h-16 w-16 shrink-0 rounded-2xl border border-white/20 bg-black/40 shadow-[0_5px_0_#111827] grid place-items-center overflow-hidden">
-                <Image src={Logo} alt="logo" width={64} height={64} className="object-contain rounded-2xl" />
+                <Image src="/Logo.png" alt="logo" width={64} height={64} className="object-contain rounded-2xl" />
               </div>
-              <div className="flex-1">
-                <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight [text-shadow:2px_2px_0_#000]">Hey, I’m Willem</h1>
+              <div>
+                <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight [text-shadow:2px_2px_0_#000]">
+                  Hey, I’m Willem
+                </h1>
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -79,26 +76,12 @@ export default function Home() {
                 >
                   this is my linktree about me erm idunno tbh but just take a look
                 </motion.p>
-              </div>
-              <div className="hidden md:flex items-center gap-2">
-                <Link href="/about" className="rounded-lg border border-white/20 bg-white/10 px-4 py-2 text-sm backdrop-blur-md shadow-[0_3px_0_#0b0b0b] hover:-translate-y-0.5 active:translate-y-[1px] transition">
-                  About Me
-                </Link>
-                <Link href="/cool-stuff" className="rounded-lg border border-white/20 bg-white/10 px-4 py-2 text-sm backdrop-blur-md shadow-[0_3px_0_#0b0b0b] hover:-translate-y-0.5 active:translate-y-[1px] transition">
-                  Cool Stuff
-                </Link>
+                <div className="mt-3 flex gap-4">
+                  <a href="/about" className="text-sm underline hover:opacity-80">About Me</a>
+                  <a href="/cool-stuff" className="text-sm underline hover:opacity-80">Cool Stuff</a>
+                </div>
               </div>
             </div>
-
-            <div className="mt-4 flex md:hidden items-center gap-2">
-              <Link href="/about" className="rounded-lg border border-white/20 bg-white/10 px-3 py-1.5 text-sm backdrop-blur-md shadow-[0_3px_0_#0b0b0b]">
-                About Me
-              </Link>
-              <Link href="/cool-stuff" className="rounded-lg border border-white/20 bg-white/10 px-3 py-1.5 text-sm backdrop-blur-md shadow-[0_3px_0_#0b0b0b]">
-                Cool Stuff
-              </Link>
-            </div>
-
             <motion.div
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
@@ -107,7 +90,6 @@ export default function Home() {
             />
           </div>
         </motion.section>
-
         <div className="mx-auto w-full max-w-2xl">
           <ul id="links" className="space-y-3">
             {LINKS.map((l, i) => (
@@ -140,5 +122,5 @@ export default function Home() {
         </div>
       </main>
     </div>
-  );
+  )
 }
