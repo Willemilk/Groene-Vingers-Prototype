@@ -1,13 +1,6 @@
 import { Github, Youtube, Twitter, Instagram, ExternalLink } from "lucide-react";
 
-type LinkItem = {
-  label: string;
-  href: string;
-  icon: React.ReactNode;
-  desc?: string;
-};
-
-const LINKS: LinkItem[] = [
+const LINKS = [
   {
     label: "GitHub",
     href: "https://github.com/Willemilk?tab=overview&from=2025-09-01&to=2025-09-16",
@@ -18,7 +11,7 @@ const LINKS: LinkItem[] = [
     label: "YouTube",
     href: "https://www.youtube.com/@willemilk1942/videos",
     icon: <Youtube size={18} />,
-    desc: "Gaming videos (Geometry Dash), lots unlisted/private",
+    desc: "Geometry Dash progress + random shares",
   },
   {
     label: "Twitter / X",
@@ -30,7 +23,7 @@ const LINKS: LinkItem[] = [
     label: "TikTok",
     href: "https://www.tiktok.com/@willemdewit10?lang=en-GB",
     icon: <Youtube size={18} />,
-    desc: "Use it less now, reels > TikTok",
+    desc: "Using less now, reels > TikTok",
   },
   {
     label: "Instagram",
@@ -46,9 +39,7 @@ export default function Home() {
       <main className="mx-auto max-w-xl px-5 py-10">
         <header className="mb-6">
           <h1 className="text-2xl font-semibold tracking-tight">@willemilk</h1>
-          <p className="text-sm text-neutral-600 dark:text-neutral-300">
-            Links and little bits about me
-          </p>
+          <p className="text-sm text-neutral-600 dark:text-neutral-300">Links</p>
         </header>
 
         <ul className="space-y-3">
@@ -64,11 +55,7 @@ export default function Home() {
                   <span className="opacity-80 group-hover:opacity-100 transition">{l.icon}</span>
                   <div>
                     <div className="font-medium tracking-tight">{l.label}</div>
-                    {l.desc && (
-                      <div className="text-xs text-neutral-600 dark:text-neutral-400">
-                        {l.desc}
-                      </div>
-                    )}
+                    <div className="text-xs text-neutral-600 dark:text-neutral-400">{l.desc}</div>
                   </div>
                 </div>
                 <ExternalLink size={16} className="opacity-40 group-hover:opacity-100 transition" />
@@ -77,8 +64,7 @@ export default function Home() {
           ))}
         </ul>
 
-        <footer className="mt-8 text-xs text-neutral-500">
-        </footer>
+        <footer className="mt-8 text-xs text-neutral-500">Simple link hub</footer>
       </main>
     </div>
   );
