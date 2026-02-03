@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Garden color palette */
+    --primary-green: #2d5a27;
+    --accent-green: #4a7c43;
+    --leaf-green: #7cb342;
+    --moss-green: #558b2f;
+    --sage-green: #9ccc65;
+    --mint-green: #aed581;
+
+    /* Earth tones */
+    --soil-brown: #5d4037;
+    --bark-brown: #795548;
+
+    /* Nature accents */
+    --flower-pink: #f48fb1;
+    --flower-yellow: #ffeb3b;
+    --flower-purple: #ba68c8;
+    --sky-blue: #81d4fa;
+
+    /* Glass morphism */
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-bg-strong: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: rgba(45, 90, 39, 0.2);
+
+    /* Text colors */
+    --text-light: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.85);
+    --text-dark: #1e3c19;
+
+    /* Gradients */
+    --gradient-garden: linear-gradient(135deg, #2d5a27 0%, #4a7c43 50%, #7cb342 100%);
+    --gradient-spring: linear-gradient(135deg, #aed581 0%, #9ccc65 50%, #7cb342 100%);
+    --gradient-earth: linear-gradient(135deg, #5d4037 0%, #795548 50%, #8d6e63 100%);
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+    background: var(--gradient-garden);
+}
+
+/* Custom scrollbar with garden theme */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(45, 90, 39, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #7cb342, #4a7c43);
+    border-radius: 6px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #9ccc65, #2d5a27);
+    background-clip: padding-box;
+}
+
+/* Selection color */
+::selection {
+    background: var(--leaf-green);
+    color: white;
+}
+
+::-moz-selection {
+    background: var(--leaf-green);
+    color: white;
+}
+
+/* Utility classes for garden effects */
+@layer utilities {
+    .text-shadow-garden {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .glass-panel {
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 8px 32px 0 var(--glass-shadow);
+    }
+
+    .glass-panel-strong {
+        background: var(--glass-bg-strong);
+        backdrop-filter: blur(16px);
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 8px 32px 0 var(--glass-shadow);
+    }
+
+    .bg-garden-gradient {
+        background: var(--gradient-garden);
+    }
+
+    .bg-spring-gradient {
+        background: var(--gradient-spring);
+    }
+
+    .bg-earth-gradient {
+        background: var(--gradient-earth);
+    }
+}
