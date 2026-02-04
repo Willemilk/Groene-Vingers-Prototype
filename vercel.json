@@ -1,0 +1,7 @@
+{
+  "buildCommand": "cd Downloads/Groene-Vingers-Prototype-main/Groene-Vingers-Prototype-main && npm run build",
+  "devCommand": "cd Downloads/Groene-Vingers-Prototype-main/Groene-Vingers-Prototype-main && npm run dev",
+  "installCommand": "cd Downloads/Groene-Vingers-Prototype-main/Groene-Vingers-Prototype-main && npm install",
+  "outputDirectory": "Downloads/Groene-Vingers-Prototype-main/Groene-Vingers-Prototype-main/.next",
+  "framework": "nextjs"
+}
