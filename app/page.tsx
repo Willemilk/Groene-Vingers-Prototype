@@ -1,76 +1,223 @@
-'use client'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
-import { Github, Youtube, Twitter, Instagram, ExternalLink } from 'lucide-react'
+'use client';
 
-const LINKS = [
-  { label: 'GitHub', href: 'https://github.com/Willemilk?tab=overview&from=2025-09-01&to=2025-09-16', icon: <Github size={18} />, desc: 'Random projects, mostly school stuff' },
-  { label: 'YouTube', href: 'https://www.youtube.com/@willemilk1942/videos', icon: <Youtube size={18} />, desc: 'Create gaming videos mostly geometry dash a lot of videos are unlisted / private because this channel is more of a progression update thingy for geometry dash or just random videos i want to share with my friends i am not really "trying to make it" or anything like that' },
-  { label: 'Twitter / X', href: 'https://x.com/WillemdeWit040', icon: <Twitter size={18} />, desc: 'Mostly scrolling and watching people argue 😭' },
-  { label: 'TikTok', href: 'https://www.tiktok.com/@willemdewit10?lang=en-GB', icon: <Youtube size={18} />, desc: 'Using less now because of Reels' },
-  { label: 'Instagram', href: 'https://www.instagram.com/willemilk/', icon: <Instagram size={18} />, desc: 'Life stuff and reels doomscrolling' },
-]
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import FloatingLeaves from '../components/FloatingLeaves';
+import ParallaxSection from '../components/ParallaxSection';
+import ScrollReveal from '../components/ScrollReveal';
+import Button from '../components/Button';
+import Card from '../components/Card';
+import { GiFlowerPot, GiPlantRoots, GiWateringCan, GiSunflower } from 'react-icons/gi';
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden">
-      <div className="absolute inset-0 -z-10 bg-fixed bg-center bg-cover" style={{ backgroundImage: 'url(/TerrariaBackground.png)', imageRendering: 'pixelated' }} />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/80 via-black/50 to-black/85" />
-      <main className="px-6 py-10 text-neutral-100">
-        <motion.section initial={{ opacity: 0, y: 20, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ type: 'spring', stiffness: 140, damping: 18 }} className="mx-auto mb-10 w-full max-w-5xl">
-          <div className="relative rounded-3xl border border-white/15 bg-white/5 p-6 md:p-8 backdrop-blur-md shadow-[0_8px_0_#0a0a0a]">
-            <div className="absolute inset-0 rounded-3xl [mask-image:radial-gradient(160%_120%_at_0%_0%,black,transparent)] pointer-events-none">
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.18 }} transition={{ delay: 0.2, duration: 1.2 }} className="absolute -top-10 -left-10 h-44 w-44 rounded-full bg-gradient-to-br from-indigo-400 via-sky-300 to-emerald-300 blur-3xl" />
-            </div>
-            <div className="flex items-center gap-5">
-              <div className="h-16 w-16 shrink-0 rounded-2xl border border-white/20 bg-black/40 shadow-[0_5px_0_#111827] grid place-items-center overflow-hidden">
-                <Image src="/Logo.png" alt="logo" width={64} height={64} className="object-contain rounded-2xl" />
-              </div>
-              <div>
-                <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight [text-shadow:2px_2px_0_#000]">Hey, I’m Willem</h1>
-                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }} className="mt-1 text-sm/6 text-neutral-200/90">
-                  this is my linktree about me erm idunno tbh but just take a look
-                </motion.p>
-<div className="mt-3 flex gap-3">
-  <a
-    href="/about"
-    className="inline-flex items-center rounded-lg border border-white/20 bg-white/10 px-4 py-2 text-sm backdrop-blur-md shadow-[0_3px_0_#0b0b0b] hover:-translate-y-0.5 active:translate-y-[1px] transition"
-  >
-    About Me
-  </a>
-  <a
-    href="/cool-stuff"
-    className="inline-flex items-center rounded-lg border border-white/20 bg-white/10 px-4 py-2 text-sm backdrop-blur-md shadow-[0_3px_0_#0b0b0b] hover:-translate-y-0.5 active:translate-y-[1px] transition"
-  >
-    Cool Stuff
-  </a>
-</div>
+    <>
+      {/* Floating leaves background */}
+      <FloatingLeaves count={20} />
 
-              </div>
-            </div>
-            <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 0.25, type: 'spring', stiffness: 140, damping: 20 }} className="mt-5 h-[3px] w-full origin-left rounded-full bg-gradient-to-r from-white/60 via-white/30 to-transparent" />
+      {/* Hero Section */}
+      <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+        {/* Animated Background Image with Parallax */}
+        <ParallaxSection speed={-0.3} className="absolute inset-0 -z-10">
+          <div
+            className="absolute inset-0 scale-110"
+            style={{
+              backgroundImage: 'url(/assets/images/REMY-tuincentrum-05.jpg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-garden-forest-900/80 via-garden-forest-800/70 to-garden-forest-700/60" />
+        </ParallaxSection>
+
+        {/* Main Content */}
+        <div className="relative z-10 w-[95%] max-w-[1400px] min-h-[90vh] glass-panel-strong rounded-[2.5rem] p-8 md:p-12 flex flex-col shadow-2xl">
+          {/* Animated Header */}
+          <motion.header
+            className="flex flex-col md:flex-row items-center justify-between pb-8 border-b border-white/10 gap-6"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Link
+              href="/"
+              className="font-playfair text-3xl font-bold text-white flex items-center gap-3 drop-shadow-md group"
+            >
+              <motion.div
+                animate={{
+                  rotate: [0, -10, 10, -10, 0],
+                  scale: [1, 1.1, 1]
+                }}
+                transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+              >
+                <GiSunflower className="text-garden-flower-yellow text-4xl group-hover:text-garden-flower-orange transition-colors" />
+              </motion.div>
+              Groene Vingers
+            </Link>
+
+            <nav className="flex gap-10 items-center flex-wrap justify-center">
+              {['Chatbot', 'Diensten', 'Over ons', 'Contact'].map((item, i) => (
+                <motion.div
+                  key={item}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 + 0.3 }}
+                >
+                  <Link
+                    href={`/${item.toLowerCase().replace(' ', '-')}`}
+                    className="text-white text-sm font-medium opacity-90 hover:opacity-100 hover:text-garden-mint transition-all hover:-translate-y-0.5 relative group text-shadow-garden"
+                  >
+                    {item}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-garden-leaf to-garden-mint rounded-full transition-all group-hover:w-full" />
+                  </Link>
+                </motion.div>
+              ))}
+            </nav>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              <Button variant="spring" size="md">
+                💬 Direct tuinadvies
+              </Button>
+            </motion.div>
+          </motion.header>
+
+          {/* Hero Content with Parallax */}
+          <div className="flex-1 flex flex-col justify-center max-w-[800px] py-12">
+            <ParallaxSection speed={0.2}>
+              <motion.h1
+                className="font-playfair text-6xl md:text-8xl lg:text-9xl font-bold text-white leading-tight mb-8 text-shadow-garden"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                <span className="inline-block bg-gradient-to-r from-white via-garden-mint to-garden-leaf bg-clip-text text-transparent">
+                  Altijd groene
+                </span>
+                <br />
+                <span className="inline-block bg-gradient-to-r from-garden-leaf via-garden-sage to-white bg-clip-text text-transparent">
+                  vingers.
+                </span>
+              </motion.h1>
+            </ParallaxSection>
+
+            <motion.p
+              className="text-xl md:text-2xl text-white/90 leading-relaxed mb-12 max-w-[650px] drop-shadow-md"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              Stel al je tuinvragen en krijg direct slim, persoonlijk en begrijpelijk advies —
+              van plantenverzorging tot seizoentips. Van groenten tot bloemen, wij helpen je tuin floreren.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <Link href="/chatbot">
+                <Button variant="primary" size="lg">
+                  Start de chatbot →
+                </Button>
+              </Link>
+            </motion.div>
           </div>
-        </motion.section>
 
-        <div className="mx-auto w-full max-w-2xl">
-          <ul id="links" className="space-y-3">
-            {LINKS.map((l, i) => (
-              <motion.li key={l.href} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 + i * 0.06, type: 'spring', stiffness: 180, damping: 18 }}>
-                <a href={l.href} target="_blank" rel="noopener noreferrer nofollow" className="group flex items-center justify-between rounded-2xl border border-white/20 bg-white/10 px-4 py-3 backdrop-blur-md shadow-[0_6px_0_#0a0a0a] hover:translate-y-[-2px] hover:shadow-[0_8px_0_#0a0a0a] active:translate-y-[1px] transition-all">
-                  <div className="flex items-center gap-3">
-                    <span className="shrink-0 rounded-md border border-white/20 bg-black/30 p-2 shadow-[0_2px_0_#0a0a0a] group-hover:scale-105 transition">{l.icon}</span>
-                    <div>
-                      <div className="font-semibold tracking-wide">{l.label}</div>
-                      <div className="text-xs text-neutral-200/85">{l.desc}</div>
-                    </div>
-                  </div>
-                  <ExternalLink size={16} className="opacity-60 group-hover:opacity-100 transition" />
-                </a>
-              </motion.li>
-            ))}
-          </ul>
+          {/* Animated Scroll Indicator */}
+          <motion.div
+            className="absolute bottom-8 right-12 w-14 h-14 glass-panel rounded-full flex items-center justify-center text-white cursor-pointer border border-white/30 hover:border-garden-leaf transition-all"
+            animate={{
+              y: [0, 10, 0],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+            whileHover={{ scale: 1.1 }}
+          >
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M12 5v14M19 12l-7 7-7-7" />
+            </svg>
+          </motion.div>
         </div>
-      </main>
-    </div>
-  )
+      </section>
+
+      {/* Features Section with Scroll Reveals */}
+      <section className="relative py-24 px-8 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <ScrollReveal direction="up" delay={0.2}>
+            <h2 className="font-playfair text-5xl md:text-6xl font-bold text-white text-center mb-6 text-shadow-garden">
+              Jouw Tuin, Onze Expertise
+            </h2>
+          </ScrollReveal>
+
+          <ScrollReveal direction="up" delay={0.3}>
+            <p className="text-xl text-white/85 text-center mb-16 max-w-3xl mx-auto">
+              Ontdek hoe wij je helpen om je tuin het hele jaar door prachtig te houden
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: GiFlowerPot,
+                title: 'Plantadvies',
+                description: 'Vind de perfecte planten voor jouw tuin en klimaat',
+                color: 'text-garden-flower-pink',
+                delay: 0.1
+              },
+              {
+                icon: GiWateringCan,
+                title: 'Verzorgingstips',
+                description: 'Leer hoe je je planten gezond en sterk houdt',
+                color: 'text-garden-sky',
+                delay: 0.2
+              },
+              {
+                icon: GiPlantRoots,
+                title: 'Tuinontwerp',
+                description: 'Creëer een mooie en functionele tuinindeling',
+                color: 'text-garden-soil',
+                delay: 0.3
+              },
+              {
+                icon: GiSunflower,
+                title: 'Seizoentips',
+                description: 'Blijf op de hoogte van belangrijke tuinwerkzaamheden',
+                color: 'text-garden-flower-yellow',
+                delay: 0.4
+              }
+            ].map((feature, index) => (
+              <ScrollReveal key={feature.title} direction="up" delay={feature.delay}>
+                <Card variant="glass" className="p-8 h-full flex flex-col items-center text-center">
+                  <feature.icon className={`${feature.color} text-6xl mb-6`} />
+                  <h3 className="font-playfair text-2xl font-bold text-white mb-4">
+                    {feature.title}
+                  </h3>
+                  <p className="text-white/80 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </Card>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <ScrollReveal direction="up" delay={0.5}>
+            <div className="text-center mt-16">
+              <Link href="/diensten">
+                <Button variant="garden" size="lg">
+                  Bekijk al onze diensten
+                </Button>
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+    </>
+  );
 }
