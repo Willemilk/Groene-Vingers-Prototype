@@ -2,10 +2,10 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Header from '@/components/Header';
-import Card from '@/components/Card';
-import FloatingLeaves from '@/components/FloatingLeaves';
-import TypingIndicator from '@/components/TypingIndicator';
+import Header from '../components/Header';
+import Card from '../components/Card';
+import FloatingLeaves from '../components/FloatingLeaves';
+import TypingIndicator from '../components/TypingIndicator';
 import { GiFlower, GiPaperPlane } from 'react-icons/gi';
 
 interface Message {

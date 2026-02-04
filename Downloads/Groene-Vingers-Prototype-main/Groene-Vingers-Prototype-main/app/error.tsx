@@ -3,9 +3,9 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import Button from '@/components/Button';
-import Card from '@/components/Card';
-import FloatingLeaves from '@/components/FloatingLeaves';
+import Button from '../components/Button';
+import Card from '../components/Card';
+import FloatingLeaves from '../components/FloatingLeaves';
 import { GiWiltedFlower } from 'react-icons/gi';
 
 export default function Error({

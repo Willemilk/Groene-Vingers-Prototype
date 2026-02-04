@@ -2,11 +2,11 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import FloatingLeaves from '@/components/FloatingLeaves';
-import ParallaxSection from '@/components/ParallaxSection';
-import ScrollReveal from '@/components/ScrollReveal';
-import Button from '@/components/Button';
-import Card from '@/components/Card';
+import FloatingLeaves from '../components/FloatingLeaves';
+import ParallaxSection from '../components/ParallaxSection';
+import ScrollReveal from '../components/ScrollReveal';
+import Button from '../components/Button';
+import Card from '../components/Card';
 import { GiFlowerPot, GiPlantRoots, GiWateringCan, GiSunflower } from 'react-icons/gi';
 
 export default function Home() {
